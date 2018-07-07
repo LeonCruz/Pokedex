@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
+import ListMyPokemons from '../Components/ListMyPokemons';
 
 
 export default class HomeScreen extends Component<Props> {
@@ -40,7 +41,7 @@ export default class HomeScreen extends Component<Props> {
     render() {
         return (
             <View style={styles.container}>
-
+                <Text>Olá</Text>
             </View>
         );
     }
