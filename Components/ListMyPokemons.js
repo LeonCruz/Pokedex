@@ -1,9 +1,14 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View, Image, FlatList, TouchableOpacity} from 'react-native';
+import NavigationService from '../Components/NavigationService';
 
 
 export default class ListMyPokemons extends Component<Props> {
     _keyExtractor = (item, index) => item.id.toString();
+
+    _onPressItem = (pokemon) => {
+        NavigationService.navigate('MyPokemon', {pokemon: pokemon});
+    };
 
     render() {
         return(
@@ -15,8 +20,10 @@ export default class ListMyPokemons extends Component<Props> {
                 renderItem={ ({ item }) =>
                     <ListItem
                         id={item.id}
+                        onPressItem={this._onPressItem}
                         pokemon_name={item.name}
-                        pokemon_sprite={item.sprite} />
+                        pokemon_sprite={item.sprite}
+                        pokemon={item}/>
                 }
             />
         );
@@ -25,13 +32,18 @@ export default class ListMyPokemons extends Component<Props> {
 
 
 class ListItem extends Component {
+    _onPress = () => {
+
+        this.props.onPressItem(this.props.pokemon);
+    }
+
     render() {
         return(
-            <TouchableOpacity onPress={() => {}}>
+            <TouchableOpacity onPress={this._onPress}>
                 <View style={styles.item}>
-                    <Image source={{ uri: this.props.pokemon_sprite}} style={[styles.img, styles.items]} />
-                    <Text style={styles.items}>{ this.props.pokemon_name }</Text>
-                </View>    
+                    <Image source={{ uri: this.props.pokemon.sprite}} style={[styles.img, styles.items]} />
+                    <Text style={styles.items}>{ this.props.pokemon.name }</Text>
+                </View>
             </TouchableOpacity>
         );
     }
