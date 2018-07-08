@@ -14,10 +14,32 @@ export default class MyPokemonScreen extends Component {
         const pokemon = navigation.getParam('pokemon', 'Sem Nome');
 
         return(
-            <View>
-                <Text>{pokemon.name}</Text>
-                <Image source={{uri: pokemon.sprite}}/>
+            <View style={styles.container}>
+                <Image
+                    source={{uri: pokemon.sprite}}
+                    style={styles.sprite}/>
+                <Text style={styles.name}>{pokemon.name}</Text>
             </View>
         );
     }
 }
+
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'column',
+    },
+
+    sprite: {
+        width: 150,
+        height: 150,
+    },
+
+    name: {
+        fontSize: 18,
+        fontWeight: 'bold',
+    }
+})
