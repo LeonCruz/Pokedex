@@ -10,6 +10,8 @@ export default class ListMyPokemons extends Component<Props> {
             <FlatList
                 data={this.props.my_pokemons}
                 keyExtractor={this._keyExtractor}
+                horizontal={false}
+                numColumns={3}
                 renderItem={ ({ item }) =>
                     <ListItem
                         id={item.id}
@@ -26,12 +28,10 @@ class ListItem extends Component {
     render() {
         return(
             <TouchableOpacity onPress={() => {}}>
-                <View style={styles.container}>
-                    <View style={styles.grid_layout}>
-                        <Image source={{ uri: this.props.pokemon_sprite}} style={[styles.img, styles.items]} />
-                        <Text style={styles.items}>{ this.props.pokemon_name }</Text>
-                    </View>
-                </View>
+                <View style={styles.item}>
+                    <Image source={{ uri: this.props.pokemon_sprite}} style={[styles.img, styles.items]} />
+                    <Text style={styles.items}>{ this.props.pokemon_name }</Text>
+                </View>    
             </TouchableOpacity>
         );
     }
@@ -39,21 +39,9 @@ class ListItem extends Component {
 
 
 const styles = StyleSheet.create({
-    container: {
-        alignItems: 'flex-start',
-        justifyContent: 'center',
-        flexDirection: 'row',
-    },
-
-    grid_layout: {
-        borderWidth: 1,
+    item: {
         alignItems: 'center',
-        justifyContent: 'center',
-        flexDirection: 'column',
-    },
-
-    items: {
-        // marginHorizontal: 30,
+        margin: 10,
     },
 
     img: {
