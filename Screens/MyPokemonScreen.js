@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, Image} from 'react-native';
 
 
 export default class MyPokemonScreen extends Component {
@@ -16,7 +16,7 @@ export default class MyPokemonScreen extends Component {
         return(
             <View>
                 <Text>{pokemon.name}</Text>
-                <Text>Olá</Text>
+                <Image source={{uri: pokemon.sprite}}/>
             </View>
         );
     }
