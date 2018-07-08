@@ -9,10 +9,10 @@ function setTopLevelNavigator(navigator_ref) {
 }
 
 
-function navigate(routeNane, params) {
+function navigate(routeName, params) {
     _navigator.dispatch(
         NavigationActions.navigate({
-            routeNane,
+            routeName,
             params,
         })
     )
