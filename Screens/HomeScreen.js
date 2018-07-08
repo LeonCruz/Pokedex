@@ -61,7 +61,7 @@ export default class HomeScreen extends Component<Props> {
     render() {
         return (
             <View style={styles.container}>
-                <Text>Meus Pokémons</Text>
+                <Text style={styles.title}>Meus Pokémons</Text>
                 <ListMyPokemons my_pokemons={this.state.my_pokemons}/>
             </View>
         );
@@ -75,4 +75,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
+
+    title: {
+        fontSize: 18,
+        fontWeight: 'bold',
+    }
 })
