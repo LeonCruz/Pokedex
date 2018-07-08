@@ -40,6 +40,21 @@ export default class HomeScreen extends Component<Props> {
                 name: 'Pokémon 6',
                 sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png',
             },
+            {
+                id: 7,
+                name: 'Pokémon 7',
+                sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png',
+            },
+            {
+                id: 8,
+                name: 'Pokémon 8',
+                sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/8.png',
+            },
+            {
+                id: 9,
+                name: 'Pokémon 9',
+                sprite: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/9.png',
+            },
         ],
     }
 
