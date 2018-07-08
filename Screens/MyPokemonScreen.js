@@ -3,8 +3,10 @@ import {StyleSheet, Text, View} from 'react-native';
 
 
 export default class MyPokemonScreen extends Component {
-    static navigationOptions = {
-        title: 'Pokémon Profile',
+    static navigationOptions = ({ navigation }) => {
+        return {
+            title: navigation.getParam('pokemon', 'Sem nome').name,
+        }
     }
 
     render() {
