@@ -9,7 +9,7 @@ const Screens = createStackNavigator(
         MyPokemon: MyPokemonScreen,
     },
     {
-        initialRoute: Home,
+        initialRoute: 'Home',
     }
 );
 
