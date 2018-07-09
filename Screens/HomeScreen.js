@@ -1,11 +1,20 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+
 import ListMyPokemons from '../Components/ListMyPokemons';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 
 export default class HomeScreen extends Component<Props> {
     static navigationOptions = {
         title: 'Pokedéx',
+
+        headerRight: (
+            <TouchableOpacity style={{marginRight: 10}}>
+                <Icon name="search" size={40}
+                    color="#000" backgroundColor="#fff"/>
+            </TouchableOpacity>
+        )
     };
 
     state = {
@@ -61,6 +70,9 @@ export default class HomeScreen extends Component<Props> {
     render() {
         return (
             <View style={styles.container}>
+                <Text>
+
+                </Text>
                 <Text style={styles.title}>Meus Pokémons</Text>
                 <ListMyPokemons my_pokemons={this.state.my_pokemons}/>
             </View>
@@ -70,6 +82,10 @@ export default class HomeScreen extends Component<Props> {
 
 
 const styles = StyleSheet.create({
+    icon: {
+        marginRight: 10,
+    },
+
     container: {
         flex: 1,
         alignItems: 'center',
