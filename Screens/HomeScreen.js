@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 
-import ListMyPokemons from '../Components/ListMyPokemons';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import ListMyPokemons from '../Components/ListMyPokemons';
+import SearchIcon from '../Components/SearchIcon';
 
 
 export default class HomeScreen extends Component<Props> {
@@ -10,10 +11,7 @@ export default class HomeScreen extends Component<Props> {
         title: 'Pokedéx',
 
         headerRight: (
-            <TouchableOpacity style={{marginRight: 10}}>
-                <Icon name="search" size={40}
-                    color="#000" backgroundColor="#fff"/>
-            </TouchableOpacity>
+            <SearchIcon />
         )
     };
 
