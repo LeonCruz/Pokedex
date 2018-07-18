@@ -8,7 +8,7 @@ export default class SearchIcon extends Component {
     render() {
         return(
             <TouchableOpacity style={{marginRight: 10}}>
-                <Icon name="search" size={40}
+                <Icon name="search" size={30}
                     color="#000" backgroundColor="#fff"/>
             </TouchableOpacity>
         );
