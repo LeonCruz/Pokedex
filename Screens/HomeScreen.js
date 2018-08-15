@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
-
 import Icon from 'react-native-vector-icons/MaterialIcons';
+
 import ListMyPokemons from '../Components/ListMyPokemons';
 import SearchIcon from '../Components/SearchIcon';
+import NavigationService from '../Components/NavigationService';
 
 
 export default class HomeScreen extends Component<Props> {
@@ -11,7 +12,7 @@ export default class HomeScreen extends Component<Props> {
         title: 'Pokedéx',
 
         headerRight: (
-            <SearchIcon />
+            <SearchIcon func={() => {NavigationService.navigate('SearchPokemon', {})} }/>
         )
     };
 
