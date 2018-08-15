@@ -69,12 +69,19 @@ export default class SearchPokemonScreen extends Component {
         return this.state.searching && <ActivityIndicator size="large" color="#00ff00"/>
     }
 
+    show_pokemon = () => {
+        return !this.state.searching &&
+        <View style={styles.container}>
+            <Text style={styles.name}> { this.state.pokeon_name }</Text>
+            <Image source={{uri: this.state.sprite}} style={styles.sprite}/>
+        </View>
+    }
+
     render() {
         return(
             <View style={styles.container}>
                 {this.display_spinner()}
-                <Text style={styles.name}> { this.state.pokeon_name }</Text>
-                <Image source={{uri: this.state.sprite}} style={styles.sprite}/>
+                {this.show_pokemon()}
             </View>
         );
     }
