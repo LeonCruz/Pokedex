@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {StyleSheet, Text, View, TextInput, ActivityIndicator, Image} from 'react-native';
+import {StyleSheet, Text, View, TextInput, ActivityIndicator, Image, Button} from 'react-native';
 const Pokedex = require('pokedex-promise-v2');
 
 import SearchIcon from '../Components/SearchIcon';
@@ -12,8 +12,9 @@ export default class SearchPokemonScreen extends Component {
         this.state = {
             name_pokemon: '',
             searching: false,
+            resp: false,
             sprite: '',
-            pokeon_name: '',
+            pokemon_name: '',
         }
     }
 
@@ -55,8 +56,9 @@ export default class SearchPokemonScreen extends Component {
             .then((resp) => {
                 this.setState({
                     searching: false,
+                    resp: true,
                     sprite: resp.sprites.front_default,
-                    pokeon_name: resp.name,
+                    pokemon_name: resp.name,
                 })
             })
             .catch((error) => {
@@ -70,11 +72,10 @@ export default class SearchPokemonScreen extends Component {
     }
 
     show_pokemon = () => {
-        return !this.state.searching &&
-        <View style={styles.container}>
-            <Text style={styles.name}> { this.state.pokeon_name }</Text>
-            <Image source={{uri: this.state.sprite}} style={styles.sprite}/>
-        </View>
+        if(this.state.resp && !this.state.searching){
+            return <PokemonSearched name={this.state.pokemon_name} sprite={this.state.sprite}/>
+        }
+
     }
 
     render() {
@@ -84,6 +85,23 @@ export default class SearchPokemonScreen extends Component {
                 {this.show_pokemon()}
             </View>
         );
+    }
+}
+
+
+class PokemonSearched extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return(
+            <View style={styles.container}>
+                <Text style={styles.name}> {this.props.name} </Text>
+                <Image source={{uri: this.props.sprite}} style={styles.sprite}/>
+                <Button title="Adicionar" onPress={() => {}}/>
+            </View>
+        )
     }
 }
 
@@ -104,6 +122,16 @@ const styles = StyleSheet.create({
     name: {
         fontSize: 20,
         fontWeight: 'bold',
+    },
 
+    btn_add: {
+        backgroundColor: 'green',
+        padding: 10,
+        borderRadius: 10,
+    },
+
+    text_btn: {
+        fontSize: 20,
+        color: 'white'
     }
 })
