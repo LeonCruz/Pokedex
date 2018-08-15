@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity, AsyncStorage} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import ListMyPokemons from '../Components/ListMyPokemons';
