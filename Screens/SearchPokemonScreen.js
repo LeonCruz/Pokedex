@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {StyleSheet, Text, View, TextInput, ActivityIndicator, Image, Button} from 'react-native';
+import {StyleSheet, Text, View, TextInput, ActivityIndicator, Image, Button, AsyncStorage} from 'react-native';
 const Pokedex = require('pokedex-promise-v2');
 
 import SearchIcon from '../Components/SearchIcon';
@@ -94,12 +94,14 @@ class PokemonSearched extends React.Component {
         super(props);
     }
 
+    save_pokemon = async () => {}
+
     render() {
         return(
             <View style={styles.container}>
                 <Text style={styles.name}> {this.props.name} </Text>
                 <Image source={{uri: this.props.sprite}} style={styles.sprite}/>
-                <Button title="Adicionar" onPress={() => {}}/>
+                <Button title="Adicionar" onPress={() => {this.save_pokemon()}}/>
             </View>
         )
     }
