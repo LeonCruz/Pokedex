@@ -95,12 +95,13 @@ class PokemonSearched extends React.Component {
     }
 
     async save_pokemon() {
+        let pokemon = JSON.stringify({name: this.props.name, sprite: this.props.sprite});
+
         try {
-            await AsyncStorage.setItem('pokemon', JSON.stringify({'name': 'bulbasaur', 'sprite': 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png'}))
+            await AsyncStorage.setItem('my_pokemons', pokemon)
         } catch(error) {
             alert(error);
         }
-
     }
 
     render() {
