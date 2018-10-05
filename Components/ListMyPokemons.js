@@ -4,7 +4,7 @@ import NavigationService from '../Components/NavigationService';
 
 
 export default class ListMyPokemons extends Component<Props> {
-    _keyExtractor = (item, index) => item.id.toString();
+    _keyExtractor = (item, index) => '';
 
     _onPressItem = (pokemon) => {
         NavigationService.navigate('MyPokemon', {pokemon: pokemon});
@@ -42,7 +42,7 @@ class ListItem extends Component {
             <TouchableOpacity onPress={this._onPress}>
                 <View style={styles.item}>
                     <Image source={{ uri: this.props.pokemon.sprite}} style={[styles.img, styles.items]} />
-                    <Text style={styles.items}>{ this.props.pokemon.name }</Text>
+                    <Text style={styles.name}>{ this.props.pokemon.name }</Text>
                 </View>
             </TouchableOpacity>
         );
@@ -60,4 +60,9 @@ const styles = StyleSheet.create({
         width: 100,
         height: 100,
     },
+
+    name: {
+        fontWeight: 'bold',
+        fontSize: 20,
+    }
 })
