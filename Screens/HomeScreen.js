@@ -8,6 +8,13 @@ import NavigationService from '../Components/NavigationService';
 
 
 export default class HomeScreen extends Component<Props> {
+    constructor(props) {
+        super(props);
+        this.state = {
+            my_pokemons : [],
+        }
+    }
+
     static navigationOptions = {
         title: 'Pokedéx',
 
@@ -16,13 +23,9 @@ export default class HomeScreen extends Component<Props> {
         )
     };
 
-    state = {
-        my_pokemons : [],
-    }
-
     async componentDidMount() {
         try {
-            pokemon = await AsyncStorage.getItem('my_pokemons');
+            let pokemon = await AsyncStorage.getItem('my_pokemons');
             this.setState({
                 my_pokemons: [
                     ...this.state.my_pokemons,
